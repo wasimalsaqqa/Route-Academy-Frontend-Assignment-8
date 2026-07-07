@@ -1,5 +1,4 @@
-// 1. The Recipe Data Store (Using var)
-var recipes = [
+var recipes=[
     {
         title: "Classic Beef Burger",
         description: "Juicy homemade burger with all the fixings",
@@ -11,7 +10,7 @@ var recipes = [
         servings: "4 people",
         tagsHTML: '<span class="badge rounded-pill tag-badge bg-success-subtle text-success me-2 px-3 py-2">Easy</span><span class="badge rounded-pill tag-badge bg-primary-subtle text-primary px-3 py-2">American</span>',
         
-        ingredients: [
+        ingredients:[
             "500g ground beef (80/20)",
             "4 burger buns",
             "4 slices cheddar cheese",
@@ -22,7 +21,7 @@ var recipes = [
             "Burger sauce or condiments"
         ],
         
-        instructions: [
+        instructions:[
             "Divide ground beef into 4 equal portions. Form into patties, making a small indent in the center.",
             "Season patties generously with salt and pepper on both sides.",
             "Heat a grill or skillet over high heat. Cook patties for 4-5 minutes per side for medium.",
@@ -31,7 +30,7 @@ var recipes = [
             "Assemble burgers with lettuce, tomato, onion, pickles, and your favorite sauce."
         ],
         
-        tips: [
+        tips:[
             "Don't press down on burgers while cooking - keeps them juicy",
             "Make indent in center to prevent burger from puffing up",
             "Let patties rest for 2-3 minutes before serving",
@@ -56,7 +55,7 @@ var recipes = [
         servings: "4 people",
         tagsHTML: '<span class="badge rounded-pill tag-badge bg-success-subtle text-success me-2 px-3 py-2">Easy</span><span class="badge rounded-pill tag-badge bg-primary-subtle text-primary px-3 py-2">Italian</span>',
         
-        ingredients: [
+        ingredients:[
             "400g spaghetti pasta",
             "200g pancetta or guanciale, diced",
             "4 large eggs",
@@ -66,7 +65,7 @@ var recipes = [
             "Salt for pasta water"
         ],
         
-        instructions: [
+        instructions:[
             "Bring a large pot of salted water to boil. Cook spaghetti according to package directions until al dente.",
             "While pasta cooks, heat a large skillet over medium heat. Add diced pancetta and cook until crispy, about 5-7 minutes.",
             "In a bowl, whisk together eggs, grated Pecorino Romano, and Parmesan cheese. Add plenty of freshly ground black pepper.",
@@ -75,7 +74,7 @@ var recipes = [
             "Serve immediately, garnished with additional grated cheese and black pepper."
         ],
         
-        tips: [
+        tips:[
             "Use room temperature eggs for a smoother sauce consistency",
             "Work quickly when mixing eggs with hot pasta to avoid scrambling",
             "Reserve extra pasta water - it's the secret to perfect creaminess",
@@ -93,7 +92,7 @@ var recipes = [
     {
         title: "Beef Tacos",
         description: "Flavorful Mexican tacos with seasoned ground beef",
-        image: "./images/photo-1455619452474-d2be8b1e70cd.jpeg",
+        image: "./images/photo-1565299585323-38d6b0865b47.jpeg",
         rating: "4.6",
         reviews: "278",
         prepTime: "15 min",
@@ -101,7 +100,7 @@ var recipes = [
         servings: "4 people",
         tagsHTML: '<span class="badge rounded-pill tag-badge bg-success-subtle text-success me-2 px-3 py-2">Easy</span><span class="badge rounded-pill tag-badge bg-primary-subtle text-primary px-3 py-2">American</span>',
         
-        ingredients: [
+        ingredients:[
             "500g ground beef",
             "8 taco shells",
             "1 onion, diced",
@@ -113,7 +112,7 @@ var recipes = [
             "Salsa"
         ],
         
-        instructions: [
+        instructions:[
             "Heat a large skillet over medium-high heat. Cook ground beef until browned.",
             "Add diced onion and cook until softened, about 5 minutes.",
             "Stir in taco seasoning and 1/2 cup water. Simmer for 10 minutes.",
@@ -122,7 +121,7 @@ var recipes = [
             "Top with lettuce, tomatoes, cheese, sour cream, and salsa. Serve immediately."
         ],
         
-        tips: [
+        tips:[
             "Drain excess fat from beef for healthier tacos",
             "Warm shells in oven for better texture",
             "Prepare all toppings before cooking beef",
@@ -147,7 +146,7 @@ var recipes = [
         servings: "4 people",
         tagsHTML: '<span class="badge rounded-pill tag-badge bg-success-subtle text-success me-2 px-3 py-2">Intermediate</span><span class="badge rounded-pill tag-badge bg-primary-subtle text-primary px-3 py-2">Mediterranean</span>',
         
-        ingredients: [
+        ingredients:[
             "3 large eggplants, sliced",
             "500g ground lamb",
             "400g canned tomatoes",
@@ -159,7 +158,7 @@ var recipes = [
             "Olive oil"
         ],
         
-        instructions: [
+        instructions:[
             "Slice eggplants, salt them, and let sit for 30 minutes. Rinse and pat dry.",
             "Brush eggplant slices with olive oil, grill or bake until softened.",
             "Cook ground lamb with onion and garlic. Add tomatoes, cinnamon, oregano. Simmer 20 minutes.",
@@ -168,7 +167,7 @@ var recipes = [
             "Bake for 45 minutes until golden. Let rest 15 minutes before serving."
         ],
         
-        tips: [
+        tips:[
             "Salt eggplant to remove bitterness",
             "Don't skip the resting time - it helps set the layers",
             "Use ground beef if lamb is unavailable",
@@ -187,12 +186,10 @@ var recipes = [
 var currentIndex = 0;
 var btn = document.getElementById('btn-try-another');
 
-btn.onclick = function() {
+btn.onclick = function(){
     
     currentIndex++;
-    if (currentIndex >= recipes.length) {
-        currentIndex = 0;
-    }
+    if(currentIndex>=recipes.length){currentIndex = 0;}
 
     var current = recipes[currentIndex];
 
@@ -200,7 +197,7 @@ btn.onclick = function() {
     document.getElementById('recipe-title').innerHTML = current.title;
     document.getElementById('recipe-desc').innerHTML = current.description;
     document.getElementById('recipe-rating').innerHTML = current.rating;
-    document.getElementById('recipe-reviews').innerHTML = '(' + current.reviews + ' reviews)';
+    document.getElementById('recipe-reviews').innerHTML = '('+ current.reviews +' reviews)';
     document.getElementById('recipe-prep').innerHTML = current.prepTime;
     document.getElementById('recipe-cook').innerHTML = current.cookTime;
     document.getElementById('recipe-servings').innerHTML = current.servings;
@@ -208,7 +205,7 @@ btn.onclick = function() {
 
     var cookTimeInt = parseInt(current.cookTime); 
     
-    if (cookTimeInt > 45) {
+    if(cookTimeInt>45){
         document.getElementById('time-warning-container').innerHTML = 
             `<div class="extended-time-warning d-flex align-items-start">
                 <i class="fas fa-exclamation-triangle mt-1 me-3 fs-5"></i>
@@ -217,12 +214,11 @@ btn.onclick = function() {
                     <div class="warning-text">This recipe requires more than 45 minutes to prepare. Plan accordingly!</div>
                 </div>
             </div>`;
-    } else {
-        document.getElementById('time-warning-container').innerHTML = '';
     }
+    else{document.getElementById('time-warning-container').innerHTML = '';}
 
     var ingBox = '';
-    for (var i = 0; i < current.ingredients.length; i++) {
+    for(var i=0; i<current.ingredients.length; i++){
         ingBox += `<li class="mb-3 d-flex align-items-center">
                        <span class="ingredient-num">${i + 1}</span> ${current.ingredients[i]}
                    </li>`;
@@ -230,7 +226,7 @@ btn.onclick = function() {
     document.getElementById('ingredients-list').innerHTML = ingBox;
 
     var instBox = '';
-    for (var j = 0; j < current.instructions.length; j++) {
+    for(var j=0; j<current.instructions.length; j++){
         instBox += `<div class="instruction-step">
                         <div class="instruction-num">${j + 1}</div>
                         <div class="instruction-text">${current.instructions[j]}</div>
@@ -239,7 +235,7 @@ btn.onclick = function() {
     document.getElementById('instructions-list').innerHTML = instBox;
 
     var tipsBox = '';
-    for (var k = 0; k < current.tips.length; k++) {
+    for(var k=0; k<current.tips.length; k++){
         tipsBox += `<div class="tip-card d-flex align-items-center mb-4 p-3 shadow-sm">
                         <i class="fas fa-check-circle tip-icon me-3"></i>
                         <div class="tip-text">${current.tips[k]}</div>
@@ -257,3 +253,4 @@ btn.onclick = function() {
     
     document.getElementById('nutrition-list').innerHTML = nutBox;
 };
+
