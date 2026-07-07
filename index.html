@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 8</title>
+    <link rel="stylesheet" href="./bootstrap-5.3.8-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/media.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script src="https://kit.fontawesome.com/c16dd4bab3.js" crossorigin="anonymous"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbarNavAltMarkup" data-bs-root-margin="0px 0px -40%" tabindex="0" class="bg-light-cream">
+
+    <!-- Navbar Section -->
+
+    <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container-fluid px-5 w-85">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="logo-icon me-3">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>What's For Dinner</h1>
+                    <p class="sub-text">Your daily meal inspiration</p>
+                </div>
+            </a>
+            <div class="d-flex align-items-center ms-auto">
+                <a href="#" class="nav-icon" aria-label="Bookmarks"><i class="fas fa-bookmark"></i></a>
+                <a href="#" class="nav-icon" aria-label="History"><i class="fas fa-history"></i></a>
+                <a href="#" class="nav-icon" aria-label="Settings"><i class="fas fa-cog"></i></a>
+                <div class="profile-container">
+                    <img src="./images/avatar-2.jpg" alt="User Profile" class="profile-pic">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5 d-flex justify-content-center">
+        <div class="recipe-card-wrapper w-100" style="max-width: 1200px;">
+            <div class="card recipe-card border-0 h-100">
+                <div class="row g-0 h-100">
+                    
+                    <div class="col-lg-5 position-relative image-column">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="" class="recipe-img w-100 h-100 object-fit-cover" id="recipe-image">
+                        
+                        <div class="position-absolute top-0 start-0 m-4 badge bg-white text-dark rounded-pill shadow-sm px-3 py-2 review-badge">
+                            <i class="fas fa-star text-warning me-1"></i> <span class="fw-bold" id="recipe-rating">4.6</span> <span class="text-muted fw-normal" id="recipe-reviews">(421 reviews)</span>
+                        </div>
+
+                        <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4 bg-white rounded-4 shadow-sm p-3 d-flex justify-content-around text-center w-75 stats-overlay">
+                            <div>
+                                <i class="fas fa-clock text-orange mb-1 fs-5"></i>
+                                <div class="text-muted small">Prep Time</div>
+                                <div class="fw-bold" id="recipe-prep">15 min</div>
+                            </div>
+                            <div>
+                                <i class="fas fa-fire text-danger mb-1 fs-5"></i>
+                                <div class="text-muted small">Cook Time</div>
+                                <div class="fw-bold" id="recipe-cook">20 min</div>
+                            </div>
+                            <div>
+                                <i class="fas fa-user-friends text-primary mb-1 fs-5"></i>
+                                <div class="text-muted small">Servings</div>
+                                <div class="fw-bold" id="recipe-servings">4 people</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 p-4 p-md-5 d-flex flex-column bg-white content-column">
+                        
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div id="recipe-tags">
+                                <span class="badge rounded-pill tag-badge bg-success-subtle text-success me-2 px-3 py-2">Easy</span>
+                                <span class="badge rounded-pill tag-badge bg-primary-subtle text-primary px-3 py-2">American</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn icon-btn"><i class="fas fa-bookmark text-orange"></i></button>
+                                <button class="btn icon-btn"><i class="fas fa-share-alt text-orange"></i></button>
+                            </div>
+                        </div>
+
+                        <h2 class="fw-bold mb-2" id="recipe-title">Classic Beef Burger</h2>
+                        <p class="text-muted mb-4" id="recipe-desc">Juicy homemade burger with all the fixings</p>
+
+                        <div id="time-warning-container"></div>
+
+                        <ul class="nav nav-tabs recipe-tabs mb-3 border-bottom-0 align-items-center" id="recipeTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#ingredients" type="button" role="tab" aria-selected="true">
+                                    <i class="fas fa-list-ul me-2"></i>Ingredients
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="instructions-tab" data-bs-toggle="tab" data-bs-target="#instructions" type="button" role="tab" aria-selected="false">
+                                    <i class="fas fa-book-open me-2"></i>Instructions
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="nutrition-tab" data-bs-toggle="tab" data-bs-target="#nutrition" type="button" role="tab" aria-selected="false">
+                                    <i class="fas fa-chart-pie me-2"></i>Nutrition
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tips-tab" data-bs-toggle="tab" data-bs-target="#tips" type="button" role="tab" aria-selected="false">
+                                    <i class="fas fa-lightbulb me-2"></i>Chef's Tips
+                                </button>
+                            </li>
+                        </ul>
+                        
+                        <hr class="mt-0 text-muted opacity-25">
+
+                        <div class="tab-content flex-grow-1" id="recipeTabsContent">
+                            <div class="tab-pane fade show active h-100" id="ingredients" role="tabpanel" aria-labelledby="ingredients-tab">
+                                <div class="ingredients-list-container p-4 rounded-4">
+                                    <ul class="list-unstyled mb-0 ingredients-list pe-3" id="ingredients-list">
+                                        <li class="mb-3 d-flex align-items-center">
+                                            <span class="ingredient-num">1</span> 500g ground beef (80/20)
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-center">
+                                            <span class="ingredient-num">2</span> 4 burger buns
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-center">
+                                            <span class="ingredient-num">3</span> 4 slices cheddar cheese
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-center">
+                                            <span class="ingredient-num">4</span> Lettuce leaves
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-center">
+                                            <span class="ingredient-num">5</span> Tomato slices
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-center">
+                                            <span class="ingredient-num">6</span> Red onion, sliced
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-center">
+                                            <span class="ingredient-num">7</span> Pickles
+                                        </li>
+                                        <li class="mb-3 d-flex align-items-center">
+                                            <span class="ingredient-num">8</span> Burger sauce or condiments
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-pane fade h-100" id="instructions" role="tabpanel" aria-labelledby="instructions-tab">
+                                <div class="instructions-container mt-2" id="instructions-list">
+                                    
+                                    <div class="instruction-step">
+                                        <div class="instruction-num">1</div>
+                                        <div class="instruction-text">
+                                            Divide ground beef into 4 equal portions. Form into patties, making a small indent in the center.
+                                        </div>
+                                    </div>
+
+                                    <div class="instruction-step">
+                                        <div class="instruction-num">2</div>
+                                        <div class="instruction-text">
+                                            Season patties generously with salt and pepper on both sides.
+                                        </div>
+                                    </div>
+
+                                    <div class="instruction-step">
+                                        <div class="instruction-num">3</div>
+                                        <div class="instruction-text">
+                                            Heat a grill or skillet over high heat. Cook patties for 4-5 minutes per side for medium.
+                                        </div>
+                                    </div>
+
+                                    <div class="instruction-step">
+                                        <div class="instruction-num">4</div>
+                                        <div class="instruction-text">
+                                            Add cheese slices in the last minute of cooking and cover to melt.
+                                        </div>
+                                    </div>
+
+                                    <div class="instruction-step">
+                                        <div class="instruction-num">5</div>
+                                        <div class="instruction-text">
+                                            Toast burger buns lightly on the grill or in a pan.
+                                        </div>
+                                    </div>
+
+                                    <div class="instruction-step">
+                                        <div class="instruction-num">6</div>
+                                        <div class="instruction-text">
+                                            Assemble burgers with lettuce, tomato, onion, pickles, and your favorite sauce.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade h-100" id="nutrition" role="tabpanel" aria-labelledby="nutrition-tab">
+                                <div class="nutrition-container mt-2">
+                                    <div class="row g-3 pe-2" id="nutrition-list">
+                                        
+                                        <div class="col-md-6">
+                                            <div class="nutrition-card p-3 rounded-4 d-flex align-items-center">
+                                                <div class="nutrition-icon bg-orange-soft text-orange-icon me-3">
+                                                    <i class="fas fa-fire"></i>
+                                                </div>
+                                                <div class="nutrition-name flex-grow-1 fw-semibold">Calories</div>
+                                                <div class="nutrition-value fw-bold fs-5">650 kcal</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="nutrition-card p-3 rounded-4 d-flex align-items-center">
+                                                <div class="nutrition-icon bg-blue-soft text-blue-icon me-3">
+                                                    <i class="fas fa-dumbbell"></i>
+                                                </div>
+                                                <div class="nutrition-name flex-grow-1 fw-semibold">Protein</div>
+                                                <div class="nutrition-value fw-bold fs-5">38g</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="nutrition-card p-3 rounded-4 d-flex align-items-center">
+                                                <div class="nutrition-icon bg-yellow-soft text-yellow-icon me-3">
+                                                    <i class="fas fa-wheat-awn"></i>
+                                                </div>
+                                                <div class="nutrition-name flex-grow-1 fw-semibold">Carbohydrates</div>
+                                                <div class="nutrition-value fw-bold fs-5">42g</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="nutrition-card p-3 rounded-4 d-flex align-items-center">
+                                                <div class="nutrition-icon bg-red-soft text-red-icon me-3">
+                                                    <i class="fas fa-droplet"></i>
+                                                </div>
+                                                <div class="nutrition-name flex-grow-1 fw-semibold">Fat</div>
+                                                <div class="nutrition-value fw-bold fs-5">35g</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="nutrition-card p-3 rounded-4 d-flex align-items-center">
+                                                <div class="nutrition-icon bg-green-soft text-green-icon me-3">
+                                                    <i class="fas fa-leaf"></i>
+                                                </div>
+                                                <div class="nutrition-name flex-grow-1 fw-semibold">Fiber</div>
+                                                <div class="nutrition-value fw-bold fs-5">2g</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="nutrition-card p-3 rounded-4 d-flex align-items-center">
+                                                <div class="nutrition-icon bg-pink-soft text-pink-icon me-3">
+                                                    <i class="fas fa-cube"></i>
+                                                </div>
+                                                <div class="nutrition-name flex-grow-1 fw-semibold">Sodium</div>
+                                                <div class="nutrition-value fw-bold fs-5">920mg</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade h-100" id="tips" role="tabpanel" aria-labelledby="tips-tab">
+                                <div class="tips-container mt-2" id="tips-list">
+                                    
+                                    <div class="tip-card d-flex align-items-center mb-4 p-3 shadow-sm">
+                                        <i class="fas fa-check-circle tip-icon me-3"></i>
+                                        <div class="tip-text">Don't press down on burgers while cooking - keeps them juicy</div>
+                                    </div>
+
+                                    <div class="tip-card d-flex align-items-center mb-4 p-3 shadow-sm">
+                                        <i class="fas fa-check-circle tip-icon me-3"></i>
+                                        <div class="tip-text">Make indent in center to prevent burger from puffing up</div>
+                                    </div>
+
+                                    <div class="tip-card d-flex align-items-center mb-4 p-3 shadow-sm">
+                                        <i class="fas fa-check-circle tip-icon me-3"></i>
+                                        <div class="tip-text">Let patties rest for 2-3 minutes before serving</div>
+                                    </div>
+
+                                    <div class="tip-card d-flex align-items-center mb-4 p-3 shadow-sm">
+                                        <i class="fas fa-check-circle tip-icon me-3"></i>
+                                        <div class="tip-text">Toast buns for better texture and flavor</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-4 pt-2">
+                            <button class="btn btn-try-another rounded-3 px-4 py-2 fw-bold text-white shadow-sm" id="btn-try-another">
+                                <i class="fas fa-sync-alt me-2"></i> Try Another Recipe
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./bootstrap-5.3.8-dist/js/bootstrap.js"></script>
+    <script src="./js/main.js"></script>
+
+</body>
+</html>
